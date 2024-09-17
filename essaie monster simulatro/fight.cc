@@ -3,8 +3,11 @@
 
 void fight(const Monstre& Monstre1, const Monstre& Monstre2)
 {
-	std::cout << "début du combat !" << std::endl;
-
+	std::cout << "debut du combat !" << std::endl;
+	std::cout << "ROUND ONE" << std::endl;
+	std::cout << "_____________________________________" << std::endl;
+	std::cout << Monstre1.GetNom() << " vs " << Monstre2.GetNom() << std::endl;
+	std::cout << "_____________________________________" << std::endl;
 	//determiner qui commence
 
 	Monstre attaquant = Monstre1;
@@ -22,7 +25,7 @@ void fight(const Monstre& Monstre1, const Monstre& Monstre2)
 
 	while (Monstre1.IsAlive() && Monstre2.IsAlive())
 	{
-		int damage = attaquant.GetDamage() - defenseur.Getdefense();
+		int damage = std::max(0, attaquant.GetDamage() - defenseur.Getdefense());
 		if (damage < 0)
 		{
 			damage = 0;
@@ -35,13 +38,18 @@ void fight(const Monstre& Monstre1, const Monstre& Monstre2)
 		if (pvDefenseur <= 0)
 		{
 			std::cout << defenseur.GetNom() << " est mort dans d'atroces souffrances :( " << std::endl;
-
+			std::cout << "le combat est fini " << std::endl;
 			return;
+			break;
 		}
-
-		std::swap(attaquant, defenseur);
-		std::swap(pvAttaquant, pvDefenseur);
-
+		else
+		{
+			std::swap(attaquant, defenseur);
+			std::swap(pvAttaquant, pvDefenseur);
+			std::cout << "NEXT ROUND" << std::endl;
+			continue;
+		}
+		
 	}
-	std::cout << " le combat est terminé " << std::endl;
+	
 }

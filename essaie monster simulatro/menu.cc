@@ -7,17 +7,19 @@ Monstre Monstre::pickamonster()
     int choice;
 
     Monstre monsterpicked;
+    
 
-    std::cout << "choisi monstre (1, 2, 3) : " << std::endl;
+
+    std::cout << "choisi un monstre (1, 2, 3) : " << std::endl;
     std::cout << "1. papier" << std::endl;
     std::cout << "2. ciseau" << std::endl;
     std::cout << "3. pierre" << std::endl;
 
     std::cin >> choice;
 
-    Monstre papier("papier", 150, 25, 20, 10);
-    Monstre ciseau("ciseau", 150, 25, 20, 10);
-    Monstre pierre("pierre", 150, 25, 20, 10);
+    Monstre papier("papier", 10, 5, 10, 5);
+    Monstre ciseau("ciseau", 25, 5, 10, 7);
+    Monstre pierre("pierre", 50, 5, 10, 4);
 
     switch (choice)
     {

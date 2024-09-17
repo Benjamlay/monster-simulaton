@@ -3,7 +3,7 @@
 
 Monstre::Monstre() : nom("inconnu"), pointsdevie(0), pointsattaque(0), defense(0), speed(0) {}
 
-Monstre::Monstre(std::string n, int pv, int pa, int def, int spe) :
+Monstre::Monstre(std::string n, int pv, int def, int pa, int spe) :
     nom(n),
     pointsdevie(pv),
     pointsattaque(pa),
@@ -23,7 +23,7 @@ void Monstre::afficher() const
 
 bool Monstre::IsAlive() const
 {
-    if (pointsdevie >= 0)
+    if (pointsdevie > 0)
     {
         return true;
     }
@@ -31,6 +31,8 @@ bool Monstre::IsAlive() const
     {
         return false;
     }
+
+  
 }
 
 int Monstre::GetDamage() const
@@ -56,3 +58,13 @@ std::string Monstre::GetNom() const
 {
     return nom;
 }
+bool Monstre::operator==(const Monstre& other) const
+{
+    return nom == other.nom &&
+        pointsdevie == other.pointsdevie &&
+        pointsattaque == other.pointsattaque &&
+        defense == other.defense &&
+        speed == other.speed;
+}
+
+

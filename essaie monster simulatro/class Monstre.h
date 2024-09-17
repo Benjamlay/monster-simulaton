@@ -14,7 +14,7 @@ private:
 
 public:
     Monstre();
-    Monstre(std::string n, int pv, int def, int pa, int spe);
+    Monstre(std::string n, int pv,int def, int pa, int spe);
     void afficher() const;
 
     Monstre pickamonster();
@@ -31,7 +31,10 @@ public:
 
     std::string GetNom() const;
 
-    
+    bool operator==(const Monstre& other)const;
+
+
+
 };
 
 #endif
